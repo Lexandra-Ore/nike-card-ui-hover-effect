@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Tammudu 2", cursive;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  width: 650px;
+  height: 350px;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.card .card__circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card .card__circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fbc663;
+  -webkit-clip-path: circle(160px at center);
+  clip-path: circle(160px at center);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000;
+
+  transition: 0.5s;
+}
+
+.card:hover .card__circle::before {
+  -webkit-clip-path: circle(600px at center);
+  clip-path: circle(400px at center);
+  background: #00676e;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.card img {
+  position: absolute;
+  top: -60%;
+  left: 8%;
+  height: 180%;
+  transform: rotate(-25deg);
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.card:hover img {
+  top: -80%;
+  left: 25%;
+  height: 230%;
+}
+
+.card .card__content {
+  width: 50%;
+  position: relative;
+  left: 20%;
+  transition: 0.5s;
+  padding: 20px 20px 20px 40px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card:hover .card__content {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.card .card__content h2 {
+  color: #e2d1ca;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.card .card__content p {
+  color: #e2d1ca;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.card .card__content a:link,
+.card .card__content a:visited {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  color: #6c4c95;
+  background: #fbc663;
+  padding: 6px 4px 0 4px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card .card__content a:hover,
+.card .card__content a:active {
+  background: #faba42;
+}
+
+@media (max-width: 480px){
+  .card img {
+    top: -44%;
+    left: -25%;
+    height: 160%;
+  }
+
+  .card:hover img {
+    height: 90%;
+    top: 20%;
+    left: -22%;
+    transform: rotate(-30deg);
+    
+  }
+
+  .card {
+    width: auto;
+    max-width: 350px;
+    margin: 10px;
+    align-items:flex-start;
+  }
+
+  .card:hover {
+  
+  height: 600px;  
+  }
+
+  .card .card__content {
+    width: 100%;
+    left: 0;
+    padding: 30px;
+  }
+  
+}
+
